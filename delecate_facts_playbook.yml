@@ -1,0 +1,11 @@
+---
+- name: 'To assign gathered facts to the delegated host instead of the current host'
+  hosts: localhost
+
+  tasks:
+    - name: Gather facts from db servers
+      setup:
+      delegate_to: "{{ item }}"
+      delegate_facts: true
+      loop: "{{ groups['dbservers'] }}"
+...
