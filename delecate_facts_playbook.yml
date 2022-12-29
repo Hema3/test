@@ -1,11 +1,4 @@
 ---
-- name: 'To assign gathered facts to the delegated host instead of the current host'
+- name: 'label of the playbook definition'
   hosts: localhost
-
-  tasks:
-    - name: Gather facts from db servers
-      setup:
-      delegate_to: "{{ item }}"
-      delegate_facts: true
-      loop: "{{ groups['dbservers'] }}"
 ...
